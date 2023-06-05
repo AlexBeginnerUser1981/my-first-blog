@@ -84,7 +84,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
     },
-    'default': {
+    'postgresql': {
         'CONN_MAX_AGE': 0,
         'ENGINE': 'django.db.backends.postgresql',
         'HOST': 'localhost',
@@ -92,8 +92,19 @@ DATABASES = {
         'PASSWORD': '19811981',
         'PORT': '',
         'USER': 'DjangoUser'
+    },
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'HOST': 'localhost',
+        'NAME':'mytest',
+        'USER':'newuser',
+        'PASSWORD':'Q12-We2-J44-h2U-lK3',
+        #'OPTIONS': {
+        #    'read_default_file': os.path.join(BASE_DIR, 'my.cnf'),
+        #},
     }
 }
+
 
 
 # Password validation
