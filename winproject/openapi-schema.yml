@@ -1,0 +1,4340 @@
+openapi: 3.0.2
+info:
+  title: ''
+  version: ''
+paths:
+  /users/:
+    get:
+      operationId: listUsers
+      description: API endpoint that allows users to be viewed or edited.
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  count:
+                    type: integer
+                    example: 123
+                  next:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?page=4
+                  previous:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?page=2
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/User'
+            text/html:
+              schema:
+                type: object
+                properties:
+                  count:
+                    type: integer
+                    example: 123
+                  next:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?page=4
+                  previous:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?page=2
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/User'
+            multipart/form-data; boundary=BoUnDaRyStRiNg:
+              schema:
+                type: object
+                properties:
+                  count:
+                    type: integer
+                    example: 123
+                  next:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?page=4
+                  previous:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?page=2
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/User'
+          description: ''
+      tags:
+      - users
+    post:
+      operationId: createUser
+      description: API endpoint that allows users to be viewed or edited.
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/User'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/User'
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+            text/html:
+              schema:
+                $ref: '#/components/schemas/User'
+            multipart/form-data; boundary=BoUnDaRyStRiNg:
+              schema:
+                $ref: '#/components/schemas/User'
+          description: ''
+      tags:
+      - users
+  /users/recent_users/:
+    get:
+      operationId: recentUsersUser
+      description: API endpoint that allows users to be viewed or edited.
+      parameters: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+            text/html:
+              schema:
+                $ref: '#/components/schemas/User'
+            multipart/form-data; boundary=BoUnDaRyStRiNg:
+              schema:
+                $ref: '#/components/schemas/User'
+          description: ''
+      tags:
+      - users
+  /users/{id}/:
+    get:
+      operationId: retrieveUser
+      description: API endpoint that allows users to be viewed or edited.
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: "A unique integer value identifying this \u043F\u043E\u043B\u044C\
+          \u0437\u043E\u0432\u0430\u0442\u0435\u043B\u044C."
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+            text/html:
+              schema:
+                $ref: '#/components/schemas/User'
+            multipart/form-data; boundary=BoUnDaRyStRiNg:
+              schema:
+                $ref: '#/components/schemas/User'
+          description: ''
+      tags:
+      - users
+    put:
+      operationId: updateUser
+      description: API endpoint that allows users to be viewed or edited.
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: "A unique integer value identifying this \u043F\u043E\u043B\u044C\
+          \u0437\u043E\u0432\u0430\u0442\u0435\u043B\u044C."
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/User'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/User'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+            text/html:
+              schema:
+                $ref: '#/components/schemas/User'
+            multipart/form-data; boundary=BoUnDaRyStRiNg:
+              schema:
+                $ref: '#/components/schemas/User'
+          description: ''
+      tags:
+      - users
+    patch:
+      operationId: partialUpdateUser
+      description: API endpoint that allows users to be viewed or edited.
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: "A unique integer value identifying this \u043F\u043E\u043B\u044C\
+          \u0437\u043E\u0432\u0430\u0442\u0435\u043B\u044C."
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/User'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/User'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+            text/html:
+              schema:
+                $ref: '#/components/schemas/User'
+            multipart/form-data; boundary=BoUnDaRyStRiNg:
+              schema:
+                $ref: '#/components/schemas/User'
+          description: ''
+      tags:
+      - users
+    delete:
+      operationId: destroyUser
+      description: API endpoint that allows users to be viewed or edited.
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: "A unique integer value identifying this \u043F\u043E\u043B\u044C\
+          \u0437\u043E\u0432\u0430\u0442\u0435\u043B\u044C."
+        schema:
+          type: string
+      responses:
+        '204':
+          description: ''
+      tags:
+      - users
+  /groups/:
+    get:
+      operationId: listGroups
+      description: API endpoint that allows groups to be viewed or edited.
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  count:
+                    type: integer
+                    example: 123
+                  next:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?page=4
+                  previous:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?page=2
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Group'
+            text/html:
+              schema:
+                type: object
+                properties:
+                  count:
+                    type: integer
+                    example: 123
+                  next:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?page=4
+                  previous:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?page=2
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Group'
+            multipart/form-data; boundary=BoUnDaRyStRiNg:
+              schema:
+                type: object
+                properties:
+                  count:
+                    type: integer
+                    example: 123
+                  next:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?page=4
+                  previous:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?page=2
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Group'
+          description: ''
+      tags:
+      - groups
+    post:
+      operationId: createGroup
+      description: API endpoint that allows groups to be viewed or edited.
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Group'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Group'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Group'
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Group'
+            text/html:
+              schema:
+                $ref: '#/components/schemas/Group'
+            multipart/form-data; boundary=BoUnDaRyStRiNg:
+              schema:
+                $ref: '#/components/schemas/Group'
+          description: ''
+      tags:
+      - groups
+  /groups/{id}/:
+    get:
+      operationId: retrieveGroup
+      description: API endpoint that allows groups to be viewed or edited.
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: "A unique integer value identifying this \u0433\u0440\u0443\u043F\
+          \u043F\u0430."
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Group'
+            text/html:
+              schema:
+                $ref: '#/components/schemas/Group'
+            multipart/form-data; boundary=BoUnDaRyStRiNg:
+              schema:
+                $ref: '#/components/schemas/Group'
+          description: ''
+      tags:
+      - groups
+    put:
+      operationId: updateGroup
+      description: API endpoint that allows groups to be viewed or edited.
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: "A unique integer value identifying this \u0433\u0440\u0443\u043F\
+          \u043F\u0430."
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Group'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Group'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Group'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Group'
+            text/html:
+              schema:
+                $ref: '#/components/schemas/Group'
+            multipart/form-data; boundary=BoUnDaRyStRiNg:
+              schema:
+                $ref: '#/components/schemas/Group'
+          description: ''
+      tags:
+      - groups
+    patch:
+      operationId: partialUpdateGroup
+      description: API endpoint that allows groups to be viewed or edited.
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: "A unique integer value identifying this \u0433\u0440\u0443\u043F\
+          \u043F\u0430."
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Group'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Group'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Group'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Group'
+            text/html:
+              schema:
+                $ref: '#/components/schemas/Group'
+            multipart/form-data; boundary=BoUnDaRyStRiNg:
+              schema:
+                $ref: '#/components/schemas/Group'
+          description: ''
+      tags:
+      - groups
+    delete:
+      operationId: destroyGroup
+      description: API endpoint that allows groups to be viewed or edited.
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: "A unique integer value identifying this \u0433\u0440\u0443\u043F\
+          \u043F\u0430."
+        schema:
+          type: string
+      responses:
+        '204':
+          description: ''
+      tags:
+      - groups
+  /category/:
+    get:
+      operationId: listCategorys
+      description: ''
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  count:
+                    type: integer
+                    example: 123
+                  next:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?page=4
+                  previous:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?page=2
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Category'
+            text/html:
+              schema:
+                type: object
+                properties:
+                  count:
+                    type: integer
+                    example: 123
+                  next:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?page=4
+                  previous:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?page=2
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Category'
+            multipart/form-data; boundary=BoUnDaRyStRiNg:
+              schema:
+                type: object
+                properties:
+                  count:
+                    type: integer
+                    example: 123
+                  next:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?page=4
+                  previous:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?page=2
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Category'
+          description: ''
+      tags:
+      - category
+    post:
+      operationId: createCategory
+      description: ''
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Category'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Category'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Category'
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Category'
+            text/html:
+              schema:
+                $ref: '#/components/schemas/Category'
+            multipart/form-data; boundary=BoUnDaRyStRiNg:
+              schema:
+                $ref: '#/components/schemas/Category'
+          description: ''
+      tags:
+      - category
+  /category/{id}/:
+    get:
+      operationId: retrieveCategory
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: "A unique integer value identifying this \u041A\u0430\u0442\u0435\
+          \u0433\u043E\u0440\u0438\u044F \u043D\u0430\u043F\u0438\u0442\u043A\u0430\
+          ."
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Category'
+            text/html:
+              schema:
+                $ref: '#/components/schemas/Category'
+            multipart/form-data; boundary=BoUnDaRyStRiNg:
+              schema:
+                $ref: '#/components/schemas/Category'
+          description: ''
+      tags:
+      - category
+    put:
+      operationId: updateCategory
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: "A unique integer value identifying this \u041A\u0430\u0442\u0435\
+          \u0433\u043E\u0440\u0438\u044F \u043D\u0430\u043F\u0438\u0442\u043A\u0430\
+          ."
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Category'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Category'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Category'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Category'
+            text/html:
+              schema:
+                $ref: '#/components/schemas/Category'
+            multipart/form-data; boundary=BoUnDaRyStRiNg:
+              schema:
+                $ref: '#/components/schemas/Category'
+          description: ''
+      tags:
+      - category
+    patch:
+      operationId: partialUpdateCategory
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: "A unique integer value identifying this \u041A\u0430\u0442\u0435\
+          \u0433\u043E\u0440\u0438\u044F \u043D\u0430\u043F\u0438\u0442\u043A\u0430\
+          ."
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Category'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Category'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Category'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Category'
+            text/html:
+              schema:
+                $ref: '#/components/schemas/Category'
+            multipart/form-data; boundary=BoUnDaRyStRiNg:
+              schema:
+                $ref: '#/components/schemas/Category'
+          description: ''
+      tags:
+      - category
+    delete:
+      operationId: destroyCategory
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: "A unique integer value identifying this \u041A\u0430\u0442\u0435\
+          \u0433\u043E\u0440\u0438\u044F \u043D\u0430\u043F\u0438\u0442\u043A\u0430\
+          ."
+        schema:
+          type: string
+      responses:
+        '204':
+          description: ''
+      tags:
+      - category
+  /subcategory/:
+    get:
+      operationId: listSubCategorys
+      description: ''
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  count:
+                    type: integer
+                    example: 123
+                  next:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?page=4
+                  previous:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?page=2
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/SubCategory'
+            text/html:
+              schema:
+                type: object
+                properties:
+                  count:
+                    type: integer
+                    example: 123
+                  next:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?page=4
+                  previous:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?page=2
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/SubCategory'
+            multipart/form-data; boundary=BoUnDaRyStRiNg:
+              schema:
+                type: object
+                properties:
+                  count:
+                    type: integer
+                    example: 123
+                  next:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?page=4
+                  previous:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?page=2
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/SubCategory'
+          description: ''
+      tags:
+      - subcategory
+    post:
+      operationId: createSubCategory
+      description: ''
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SubCategory'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/SubCategory'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/SubCategory'
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SubCategory'
+            text/html:
+              schema:
+                $ref: '#/components/schemas/SubCategory'
+            multipart/form-data; boundary=BoUnDaRyStRiNg:
+              schema:
+                $ref: '#/components/schemas/SubCategory'
+          description: ''
+      tags:
+      - subcategory
+  /subcategory/{id}/:
+    get:
+      operationId: retrieveSubCategory
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: "A unique integer value identifying this \u0422\u0438\u043F \u043D\
+          \u0430\u043F\u0438\u0442\u043A\u0430."
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SubCategory'
+            text/html:
+              schema:
+                $ref: '#/components/schemas/SubCategory'
+            multipart/form-data; boundary=BoUnDaRyStRiNg:
+              schema:
+                $ref: '#/components/schemas/SubCategory'
+          description: ''
+      tags:
+      - subcategory
+    put:
+      operationId: updateSubCategory
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: "A unique integer value identifying this \u0422\u0438\u043F \u043D\
+          \u0430\u043F\u0438\u0442\u043A\u0430."
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SubCategory'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/SubCategory'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/SubCategory'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SubCategory'
+            text/html:
+              schema:
+                $ref: '#/components/schemas/SubCategory'
+            multipart/form-data; boundary=BoUnDaRyStRiNg:
+              schema:
+                $ref: '#/components/schemas/SubCategory'
+          description: ''
+      tags:
+      - subcategory
+    patch:
+      operationId: partialUpdateSubCategory
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: "A unique integer value identifying this \u0422\u0438\u043F \u043D\
+          \u0430\u043F\u0438\u0442\u043A\u0430."
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SubCategory'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/SubCategory'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/SubCategory'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SubCategory'
+            text/html:
+              schema:
+                $ref: '#/components/schemas/SubCategory'
+            multipart/form-data; boundary=BoUnDaRyStRiNg:
+              schema:
+                $ref: '#/components/schemas/SubCategory'
+          description: ''
+      tags:
+      - subcategory
+    delete:
+      operationId: destroySubCategory
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: "A unique integer value identifying this \u0422\u0438\u043F \u043D\
+          \u0430\u043F\u0438\u0442\u043A\u0430."
+        schema:
+          type: string
+      responses:
+        '204':
+          description: ''
+      tags:
+      - subcategory
+  /type/:
+    get:
+      operationId: listTypes
+      description: ''
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  count:
+                    type: integer
+                    example: 123
+                  next:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?page=4
+                  previous:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?page=2
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Type'
+            text/html:
+              schema:
+                type: object
+                properties:
+                  count:
+                    type: integer
+                    example: 123
+                  next:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?page=4
+                  previous:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?page=2
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Type'
+            multipart/form-data; boundary=BoUnDaRyStRiNg:
+              schema:
+                type: object
+                properties:
+                  count:
+                    type: integer
+                    example: 123
+                  next:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?page=4
+                  previous:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?page=2
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Type'
+          description: ''
+      tags:
+      - type
+    post:
+      operationId: createType
+      description: ''
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Type'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Type'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Type'
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Type'
+            text/html:
+              schema:
+                $ref: '#/components/schemas/Type'
+            multipart/form-data; boundary=BoUnDaRyStRiNg:
+              schema:
+                $ref: '#/components/schemas/Type'
+          description: ''
+      tags:
+      - type
+  /type/{id}/:
+    get:
+      operationId: retrieveType
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: "A unique integer value identifying this \u0422\u0438\u043F."
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Type'
+            text/html:
+              schema:
+                $ref: '#/components/schemas/Type'
+            multipart/form-data; boundary=BoUnDaRyStRiNg:
+              schema:
+                $ref: '#/components/schemas/Type'
+          description: ''
+      tags:
+      - type
+    put:
+      operationId: updateType
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: "A unique integer value identifying this \u0422\u0438\u043F."
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Type'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Type'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Type'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Type'
+            text/html:
+              schema:
+                $ref: '#/components/schemas/Type'
+            multipart/form-data; boundary=BoUnDaRyStRiNg:
+              schema:
+                $ref: '#/components/schemas/Type'
+          description: ''
+      tags:
+      - type
+    patch:
+      operationId: partialUpdateType
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: "A unique integer value identifying this \u0422\u0438\u043F."
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Type'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Type'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Type'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Type'
+            text/html:
+              schema:
+                $ref: '#/components/schemas/Type'
+            multipart/form-data; boundary=BoUnDaRyStRiNg:
+              schema:
+                $ref: '#/components/schemas/Type'
+          description: ''
+      tags:
+      - type
+    delete:
+      operationId: destroyType
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: "A unique integer value identifying this \u0422\u0438\u043F."
+        schema:
+          type: string
+      responses:
+        '204':
+          description: ''
+      tags:
+      - type
+  /color/:
+    get:
+      operationId: listColors
+      description: ''
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  count:
+                    type: integer
+                    example: 123
+                  next:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?page=4
+                  previous:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?page=2
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Color'
+            text/html:
+              schema:
+                type: object
+                properties:
+                  count:
+                    type: integer
+                    example: 123
+                  next:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?page=4
+                  previous:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?page=2
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Color'
+            multipart/form-data; boundary=BoUnDaRyStRiNg:
+              schema:
+                type: object
+                properties:
+                  count:
+                    type: integer
+                    example: 123
+                  next:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?page=4
+                  previous:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?page=2
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Color'
+          description: ''
+      tags:
+      - color
+    post:
+      operationId: createColor
+      description: ''
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Color'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Color'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Color'
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Color'
+            text/html:
+              schema:
+                $ref: '#/components/schemas/Color'
+            multipart/form-data; boundary=BoUnDaRyStRiNg:
+              schema:
+                $ref: '#/components/schemas/Color'
+          description: ''
+      tags:
+      - color
+  /color/{id}/:
+    get:
+      operationId: retrieveColor
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this Color.
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Color'
+            text/html:
+              schema:
+                $ref: '#/components/schemas/Color'
+            multipart/form-data; boundary=BoUnDaRyStRiNg:
+              schema:
+                $ref: '#/components/schemas/Color'
+          description: ''
+      tags:
+      - color
+    put:
+      operationId: updateColor
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this Color.
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Color'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Color'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Color'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Color'
+            text/html:
+              schema:
+                $ref: '#/components/schemas/Color'
+            multipart/form-data; boundary=BoUnDaRyStRiNg:
+              schema:
+                $ref: '#/components/schemas/Color'
+          description: ''
+      tags:
+      - color
+    patch:
+      operationId: partialUpdateColor
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this Color.
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Color'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Color'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Color'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Color'
+            text/html:
+              schema:
+                $ref: '#/components/schemas/Color'
+            multipart/form-data; boundary=BoUnDaRyStRiNg:
+              schema:
+                $ref: '#/components/schemas/Color'
+          description: ''
+      tags:
+      - color
+    delete:
+      operationId: destroyColor
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this Color.
+        schema:
+          type: string
+      responses:
+        '204':
+          description: ''
+      tags:
+      - color
+  /body/:
+    get:
+      operationId: listBodys
+      description: ''
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  count:
+                    type: integer
+                    example: 123
+                  next:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?page=4
+                  previous:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?page=2
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Body'
+            text/html:
+              schema:
+                type: object
+                properties:
+                  count:
+                    type: integer
+                    example: 123
+                  next:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?page=4
+                  previous:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?page=2
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Body'
+            multipart/form-data; boundary=BoUnDaRyStRiNg:
+              schema:
+                type: object
+                properties:
+                  count:
+                    type: integer
+                    example: 123
+                  next:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?page=4
+                  previous:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?page=2
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Body'
+          description: ''
+      tags:
+      - body
+    post:
+      operationId: createBody
+      description: ''
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Body'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Body'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Body'
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Body'
+            text/html:
+              schema:
+                $ref: '#/components/schemas/Body'
+            multipart/form-data; boundary=BoUnDaRyStRiNg:
+              schema:
+                $ref: '#/components/schemas/Body'
+          description: ''
+      tags:
+      - body
+  /body/{id}/:
+    get:
+      operationId: retrieveBody
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this Wine Bod.
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Body'
+            text/html:
+              schema:
+                $ref: '#/components/schemas/Body'
+            multipart/form-data; boundary=BoUnDaRyStRiNg:
+              schema:
+                $ref: '#/components/schemas/Body'
+          description: ''
+      tags:
+      - body
+    put:
+      operationId: updateBody
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this Wine Bod.
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Body'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Body'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Body'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Body'
+            text/html:
+              schema:
+                $ref: '#/components/schemas/Body'
+            multipart/form-data; boundary=BoUnDaRyStRiNg:
+              schema:
+                $ref: '#/components/schemas/Body'
+          description: ''
+      tags:
+      - body
+    patch:
+      operationId: partialUpdateBody
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this Wine Bod.
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Body'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Body'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Body'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Body'
+            text/html:
+              schema:
+                $ref: '#/components/schemas/Body'
+            multipart/form-data; boundary=BoUnDaRyStRiNg:
+              schema:
+                $ref: '#/components/schemas/Body'
+          description: ''
+      tags:
+      - body
+    delete:
+      operationId: destroyBody
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this Wine Bod.
+        schema:
+          type: string
+      responses:
+        '204':
+          description: ''
+      tags:
+      - body
+  /productionmethod/:
+    get:
+      operationId: listProductionMethods
+      description: ''
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  count:
+                    type: integer
+                    example: 123
+                  next:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?page=4
+                  previous:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?page=2
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/ProductionMethod'
+            text/html:
+              schema:
+                type: object
+                properties:
+                  count:
+                    type: integer
+                    example: 123
+                  next:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?page=4
+                  previous:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?page=2
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/ProductionMethod'
+            multipart/form-data; boundary=BoUnDaRyStRiNg:
+              schema:
+                type: object
+                properties:
+                  count:
+                    type: integer
+                    example: 123
+                  next:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?page=4
+                  previous:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?page=2
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/ProductionMethod'
+          description: ''
+      tags:
+      - productionmethod
+    post:
+      operationId: createProductionMethod
+      description: ''
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProductionMethod'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/ProductionMethod'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/ProductionMethod'
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProductionMethod'
+            text/html:
+              schema:
+                $ref: '#/components/schemas/ProductionMethod'
+            multipart/form-data; boundary=BoUnDaRyStRiNg:
+              schema:
+                $ref: '#/components/schemas/ProductionMethod'
+          description: ''
+      tags:
+      - productionmethod
+  /productionmethod/{id}/:
+    get:
+      operationId: retrieveProductionMethod
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: "A unique integer value identifying this \u0421\u043F\u043E\u0441\
+          \u043E\u0431 \u043F\u0440\u043E\u0438\u0437\u0432\u043E\u0434\u0441\u0442\
+          \u0432\u0430."
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProductionMethod'
+            text/html:
+              schema:
+                $ref: '#/components/schemas/ProductionMethod'
+            multipart/form-data; boundary=BoUnDaRyStRiNg:
+              schema:
+                $ref: '#/components/schemas/ProductionMethod'
+          description: ''
+      tags:
+      - productionmethod
+    put:
+      operationId: updateProductionMethod
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: "A unique integer value identifying this \u0421\u043F\u043E\u0441\
+          \u043E\u0431 \u043F\u0440\u043E\u0438\u0437\u0432\u043E\u0434\u0441\u0442\
+          \u0432\u0430."
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProductionMethod'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/ProductionMethod'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/ProductionMethod'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProductionMethod'
+            text/html:
+              schema:
+                $ref: '#/components/schemas/ProductionMethod'
+            multipart/form-data; boundary=BoUnDaRyStRiNg:
+              schema:
+                $ref: '#/components/schemas/ProductionMethod'
+          description: ''
+      tags:
+      - productionmethod
+    patch:
+      operationId: partialUpdateProductionMethod
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: "A unique integer value identifying this \u0421\u043F\u043E\u0441\
+          \u043E\u0431 \u043F\u0440\u043E\u0438\u0437\u0432\u043E\u0434\u0441\u0442\
+          \u0432\u0430."
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProductionMethod'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/ProductionMethod'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/ProductionMethod'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProductionMethod'
+            text/html:
+              schema:
+                $ref: '#/components/schemas/ProductionMethod'
+            multipart/form-data; boundary=BoUnDaRyStRiNg:
+              schema:
+                $ref: '#/components/schemas/ProductionMethod'
+          description: ''
+      tags:
+      - productionmethod
+    delete:
+      operationId: destroyProductionMethod
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: "A unique integer value identifying this \u0421\u043F\u043E\u0441\
+          \u043E\u0431 \u043F\u0440\u043E\u0438\u0437\u0432\u043E\u0434\u0441\u0442\
+          \u0432\u0430."
+        schema:
+          type: string
+      responses:
+        '204':
+          description: ''
+      tags:
+      - productionmethod
+  /brand/:
+    get:
+      operationId: listBrands
+      description: ''
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  count:
+                    type: integer
+                    example: 123
+                  next:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?page=4
+                  previous:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?page=2
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Brand'
+            text/html:
+              schema:
+                type: object
+                properties:
+                  count:
+                    type: integer
+                    example: 123
+                  next:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?page=4
+                  previous:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?page=2
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Brand'
+            multipart/form-data; boundary=BoUnDaRyStRiNg:
+              schema:
+                type: object
+                properties:
+                  count:
+                    type: integer
+                    example: 123
+                  next:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?page=4
+                  previous:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?page=2
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Brand'
+          description: ''
+      tags:
+      - brand
+    post:
+      operationId: createBrand
+      description: ''
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Brand'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Brand'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Brand'
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Brand'
+            text/html:
+              schema:
+                $ref: '#/components/schemas/Brand'
+            multipart/form-data; boundary=BoUnDaRyStRiNg:
+              schema:
+                $ref: '#/components/schemas/Brand'
+          description: ''
+      tags:
+      - brand
+  /brand/{id}/:
+    get:
+      operationId: retrieveBrand
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: "A unique integer value identifying this \u0411\u0440\u0435\u043D\
+          \u0434."
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Brand'
+            text/html:
+              schema:
+                $ref: '#/components/schemas/Brand'
+            multipart/form-data; boundary=BoUnDaRyStRiNg:
+              schema:
+                $ref: '#/components/schemas/Brand'
+          description: ''
+      tags:
+      - brand
+    put:
+      operationId: updateBrand
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: "A unique integer value identifying this \u0411\u0440\u0435\u043D\
+          \u0434."
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Brand'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Brand'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Brand'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Brand'
+            text/html:
+              schema:
+                $ref: '#/components/schemas/Brand'
+            multipart/form-data; boundary=BoUnDaRyStRiNg:
+              schema:
+                $ref: '#/components/schemas/Brand'
+          description: ''
+      tags:
+      - brand
+    patch:
+      operationId: partialUpdateBrand
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: "A unique integer value identifying this \u0411\u0440\u0435\u043D\
+          \u0434."
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Brand'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Brand'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Brand'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Brand'
+            text/html:
+              schema:
+                $ref: '#/components/schemas/Brand'
+            multipart/form-data; boundary=BoUnDaRyStRiNg:
+              schema:
+                $ref: '#/components/schemas/Brand'
+          description: ''
+      tags:
+      - brand
+    delete:
+      operationId: destroyBrand
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: "A unique integer value identifying this \u0411\u0440\u0435\u043D\
+          \u0434."
+        schema:
+          type: string
+      responses:
+        '204':
+          description: ''
+      tags:
+      - brand
+  /manufacturer/:
+    get:
+      operationId: listManufacturers
+      description: ''
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  count:
+                    type: integer
+                    example: 123
+                  next:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?page=4
+                  previous:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?page=2
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Manufacturer'
+            text/html:
+              schema:
+                type: object
+                properties:
+                  count:
+                    type: integer
+                    example: 123
+                  next:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?page=4
+                  previous:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?page=2
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Manufacturer'
+            multipart/form-data; boundary=BoUnDaRyStRiNg:
+              schema:
+                type: object
+                properties:
+                  count:
+                    type: integer
+                    example: 123
+                  next:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?page=4
+                  previous:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?page=2
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Manufacturer'
+          description: ''
+      tags:
+      - manufacturer
+    post:
+      operationId: createManufacturer
+      description: ''
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Manufacturer'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Manufacturer'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Manufacturer'
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Manufacturer'
+            text/html:
+              schema:
+                $ref: '#/components/schemas/Manufacturer'
+            multipart/form-data; boundary=BoUnDaRyStRiNg:
+              schema:
+                $ref: '#/components/schemas/Manufacturer'
+          description: ''
+      tags:
+      - manufacturer
+  /manufacturer/{id}/:
+    get:
+      operationId: retrieveManufacturer
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: "A unique integer value identifying this \u041F\u0440\u043E\u0438\
+          \u0437\u0432\u043E\u0434\u0438\u0442\u0435\u043B\u044C."
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Manufacturer'
+            text/html:
+              schema:
+                $ref: '#/components/schemas/Manufacturer'
+            multipart/form-data; boundary=BoUnDaRyStRiNg:
+              schema:
+                $ref: '#/components/schemas/Manufacturer'
+          description: ''
+      tags:
+      - manufacturer
+    put:
+      operationId: updateManufacturer
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: "A unique integer value identifying this \u041F\u0440\u043E\u0438\
+          \u0437\u0432\u043E\u0434\u0438\u0442\u0435\u043B\u044C."
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Manufacturer'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Manufacturer'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Manufacturer'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Manufacturer'
+            text/html:
+              schema:
+                $ref: '#/components/schemas/Manufacturer'
+            multipart/form-data; boundary=BoUnDaRyStRiNg:
+              schema:
+                $ref: '#/components/schemas/Manufacturer'
+          description: ''
+      tags:
+      - manufacturer
+    patch:
+      operationId: partialUpdateManufacturer
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: "A unique integer value identifying this \u041F\u0440\u043E\u0438\
+          \u0437\u0432\u043E\u0434\u0438\u0442\u0435\u043B\u044C."
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Manufacturer'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Manufacturer'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Manufacturer'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Manufacturer'
+            text/html:
+              schema:
+                $ref: '#/components/schemas/Manufacturer'
+            multipart/form-data; boundary=BoUnDaRyStRiNg:
+              schema:
+                $ref: '#/components/schemas/Manufacturer'
+          description: ''
+      tags:
+      - manufacturer
+    delete:
+      operationId: destroyManufacturer
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: "A unique integer value identifying this \u041F\u0440\u043E\u0438\
+          \u0437\u0432\u043E\u0434\u0438\u0442\u0435\u043B\u044C."
+        schema:
+          type: string
+      responses:
+        '204':
+          description: ''
+      tags:
+      - manufacturer
+  /country/:
+    get:
+      operationId: listCountrys
+      description: ''
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  count:
+                    type: integer
+                    example: 123
+                  next:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?page=4
+                  previous:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?page=2
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Country'
+            text/html:
+              schema:
+                type: object
+                properties:
+                  count:
+                    type: integer
+                    example: 123
+                  next:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?page=4
+                  previous:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?page=2
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Country'
+            multipart/form-data; boundary=BoUnDaRyStRiNg:
+              schema:
+                type: object
+                properties:
+                  count:
+                    type: integer
+                    example: 123
+                  next:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?page=4
+                  previous:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?page=2
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Country'
+          description: ''
+      tags:
+      - country
+    post:
+      operationId: createCountry
+      description: ''
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Country'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Country'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Country'
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Country'
+            text/html:
+              schema:
+                $ref: '#/components/schemas/Country'
+            multipart/form-data; boundary=BoUnDaRyStRiNg:
+              schema:
+                $ref: '#/components/schemas/Country'
+          description: ''
+      tags:
+      - country
+  /country/{id}/:
+    get:
+      operationId: retrieveCountry
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: "A unique integer value identifying this \u0421\u0442\u0440\u0430\
+          \u043D\u0430 \u043F\u0440\u043E\u0438\u0441\u0445\u043E\u0436\u0434\u0435\
+          \u043D\u0438\u044F."
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Country'
+            text/html:
+              schema:
+                $ref: '#/components/schemas/Country'
+            multipart/form-data; boundary=BoUnDaRyStRiNg:
+              schema:
+                $ref: '#/components/schemas/Country'
+          description: ''
+      tags:
+      - country
+    put:
+      operationId: updateCountry
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: "A unique integer value identifying this \u0421\u0442\u0440\u0430\
+          \u043D\u0430 \u043F\u0440\u043E\u0438\u0441\u0445\u043E\u0436\u0434\u0435\
+          \u043D\u0438\u044F."
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Country'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Country'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Country'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Country'
+            text/html:
+              schema:
+                $ref: '#/components/schemas/Country'
+            multipart/form-data; boundary=BoUnDaRyStRiNg:
+              schema:
+                $ref: '#/components/schemas/Country'
+          description: ''
+      tags:
+      - country
+    patch:
+      operationId: partialUpdateCountry
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: "A unique integer value identifying this \u0421\u0442\u0440\u0430\
+          \u043D\u0430 \u043F\u0440\u043E\u0438\u0441\u0445\u043E\u0436\u0434\u0435\
+          \u043D\u0438\u044F."
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Country'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Country'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Country'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Country'
+            text/html:
+              schema:
+                $ref: '#/components/schemas/Country'
+            multipart/form-data; boundary=BoUnDaRyStRiNg:
+              schema:
+                $ref: '#/components/schemas/Country'
+          description: ''
+      tags:
+      - country
+    delete:
+      operationId: destroyCountry
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: "A unique integer value identifying this \u0421\u0442\u0440\u0430\
+          \u043D\u0430 \u043F\u0440\u043E\u0438\u0441\u0445\u043E\u0436\u0434\u0435\
+          \u043D\u0438\u044F."
+        schema:
+          type: string
+      responses:
+        '204':
+          description: ''
+      tags:
+      - country
+  /region/:
+    get:
+      operationId: listRegions
+      description: ''
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  count:
+                    type: integer
+                    example: 123
+                  next:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?page=4
+                  previous:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?page=2
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Region'
+            text/html:
+              schema:
+                type: object
+                properties:
+                  count:
+                    type: integer
+                    example: 123
+                  next:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?page=4
+                  previous:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?page=2
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Region'
+            multipart/form-data; boundary=BoUnDaRyStRiNg:
+              schema:
+                type: object
+                properties:
+                  count:
+                    type: integer
+                    example: 123
+                  next:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?page=4
+                  previous:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?page=2
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Region'
+          description: ''
+      tags:
+      - region
+    post:
+      operationId: createRegion
+      description: ''
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Region'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Region'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Region'
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Region'
+            text/html:
+              schema:
+                $ref: '#/components/schemas/Region'
+            multipart/form-data; boundary=BoUnDaRyStRiNg:
+              schema:
+                $ref: '#/components/schemas/Region'
+          description: ''
+      tags:
+      - region
+  /region/{id}/:
+    get:
+      operationId: retrieveRegion
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: "A unique integer value identifying this \u0420\u0435\u0433\u0438\
+          \u043E\u043D \u043F\u0440\u043E\u0438\u0441\u0445\u043E\u0436\u0434\u0435\
+          \u043D\u0438\u044F."
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Region'
+            text/html:
+              schema:
+                $ref: '#/components/schemas/Region'
+            multipart/form-data; boundary=BoUnDaRyStRiNg:
+              schema:
+                $ref: '#/components/schemas/Region'
+          description: ''
+      tags:
+      - region
+    put:
+      operationId: updateRegion
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: "A unique integer value identifying this \u0420\u0435\u0433\u0438\
+          \u043E\u043D \u043F\u0440\u043E\u0438\u0441\u0445\u043E\u0436\u0434\u0435\
+          \u043D\u0438\u044F."
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Region'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Region'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Region'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Region'
+            text/html:
+              schema:
+                $ref: '#/components/schemas/Region'
+            multipart/form-data; boundary=BoUnDaRyStRiNg:
+              schema:
+                $ref: '#/components/schemas/Region'
+          description: ''
+      tags:
+      - region
+    patch:
+      operationId: partialUpdateRegion
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: "A unique integer value identifying this \u0420\u0435\u0433\u0438\
+          \u043E\u043D \u043F\u0440\u043E\u0438\u0441\u0445\u043E\u0436\u0434\u0435\
+          \u043D\u0438\u044F."
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Region'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Region'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Region'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Region'
+            text/html:
+              schema:
+                $ref: '#/components/schemas/Region'
+            multipart/form-data; boundary=BoUnDaRyStRiNg:
+              schema:
+                $ref: '#/components/schemas/Region'
+          description: ''
+      tags:
+      - region
+    delete:
+      operationId: destroyRegion
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: "A unique integer value identifying this \u0420\u0435\u0433\u0438\
+          \u043E\u043D \u043F\u0440\u043E\u0438\u0441\u0445\u043E\u0436\u0434\u0435\
+          \u043D\u0438\u044F."
+        schema:
+          type: string
+      responses:
+        '204':
+          description: ''
+      tags:
+      - region
+  /rawmaterial/:
+    get:
+      operationId: listRawMaterials
+      description: ''
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  count:
+                    type: integer
+                    example: 123
+                  next:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?page=4
+                  previous:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?page=2
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/RawMaterial'
+            text/html:
+              schema:
+                type: object
+                properties:
+                  count:
+                    type: integer
+                    example: 123
+                  next:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?page=4
+                  previous:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?page=2
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/RawMaterial'
+            multipart/form-data; boundary=BoUnDaRyStRiNg:
+              schema:
+                type: object
+                properties:
+                  count:
+                    type: integer
+                    example: 123
+                  next:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?page=4
+                  previous:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?page=2
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/RawMaterial'
+          description: ''
+      tags:
+      - rawmaterial
+    post:
+      operationId: createRawMaterial
+      description: ''
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RawMaterial'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/RawMaterial'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/RawMaterial'
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RawMaterial'
+            text/html:
+              schema:
+                $ref: '#/components/schemas/RawMaterial'
+            multipart/form-data; boundary=BoUnDaRyStRiNg:
+              schema:
+                $ref: '#/components/schemas/RawMaterial'
+          description: ''
+      tags:
+      - rawmaterial
+  /rawmaterial/{id}/:
+    get:
+      operationId: retrieveRawMaterial
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: "A unique integer value identifying this \u0421\u044B\u0440\u044C\
+          \u0435."
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RawMaterial'
+            text/html:
+              schema:
+                $ref: '#/components/schemas/RawMaterial'
+            multipart/form-data; boundary=BoUnDaRyStRiNg:
+              schema:
+                $ref: '#/components/schemas/RawMaterial'
+          description: ''
+      tags:
+      - rawmaterial
+    put:
+      operationId: updateRawMaterial
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: "A unique integer value identifying this \u0421\u044B\u0440\u044C\
+          \u0435."
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RawMaterial'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/RawMaterial'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/RawMaterial'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RawMaterial'
+            text/html:
+              schema:
+                $ref: '#/components/schemas/RawMaterial'
+            multipart/form-data; boundary=BoUnDaRyStRiNg:
+              schema:
+                $ref: '#/components/schemas/RawMaterial'
+          description: ''
+      tags:
+      - rawmaterial
+    patch:
+      operationId: partialUpdateRawMaterial
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: "A unique integer value identifying this \u0421\u044B\u0440\u044C\
+          \u0435."
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RawMaterial'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/RawMaterial'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/RawMaterial'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RawMaterial'
+            text/html:
+              schema:
+                $ref: '#/components/schemas/RawMaterial'
+            multipart/form-data; boundary=BoUnDaRyStRiNg:
+              schema:
+                $ref: '#/components/schemas/RawMaterial'
+          description: ''
+      tags:
+      - rawmaterial
+    delete:
+      operationId: destroyRawMaterial
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: "A unique integer value identifying this \u0421\u044B\u0440\u044C\
+          \u0435."
+        schema:
+          type: string
+      responses:
+        '204':
+          description: ''
+      tags:
+      - rawmaterial
+  /variety/:
+    get:
+      operationId: listVarietys
+      description: ''
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  count:
+                    type: integer
+                    example: 123
+                  next:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?page=4
+                  previous:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?page=2
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Variety'
+            text/html:
+              schema:
+                type: object
+                properties:
+                  count:
+                    type: integer
+                    example: 123
+                  next:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?page=4
+                  previous:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?page=2
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Variety'
+            multipart/form-data; boundary=BoUnDaRyStRiNg:
+              schema:
+                type: object
+                properties:
+                  count:
+                    type: integer
+                    example: 123
+                  next:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?page=4
+                  previous:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?page=2
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Variety'
+          description: ''
+      tags:
+      - variety
+    post:
+      operationId: createVariety
+      description: ''
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Variety'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Variety'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Variety'
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Variety'
+            text/html:
+              schema:
+                $ref: '#/components/schemas/Variety'
+            multipart/form-data; boundary=BoUnDaRyStRiNg:
+              schema:
+                $ref: '#/components/schemas/Variety'
+          description: ''
+      tags:
+      - variety
+  /variety/{id}/:
+    get:
+      operationId: retrieveVariety
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: "A unique integer value identifying this \u0421\u043E\u0440\u0442\
+          ."
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Variety'
+            text/html:
+              schema:
+                $ref: '#/components/schemas/Variety'
+            multipart/form-data; boundary=BoUnDaRyStRiNg:
+              schema:
+                $ref: '#/components/schemas/Variety'
+          description: ''
+      tags:
+      - variety
+    put:
+      operationId: updateVariety
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: "A unique integer value identifying this \u0421\u043E\u0440\u0442\
+          ."
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Variety'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Variety'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Variety'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Variety'
+            text/html:
+              schema:
+                $ref: '#/components/schemas/Variety'
+            multipart/form-data; boundary=BoUnDaRyStRiNg:
+              schema:
+                $ref: '#/components/schemas/Variety'
+          description: ''
+      tags:
+      - variety
+    patch:
+      operationId: partialUpdateVariety
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: "A unique integer value identifying this \u0421\u043E\u0440\u0442\
+          ."
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Variety'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Variety'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Variety'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Variety'
+            text/html:
+              schema:
+                $ref: '#/components/schemas/Variety'
+            multipart/form-data; boundary=BoUnDaRyStRiNg:
+              schema:
+                $ref: '#/components/schemas/Variety'
+          description: ''
+      tags:
+      - variety
+    delete:
+      operationId: destroyVariety
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: "A unique integer value identifying this \u0421\u043E\u0440\u0442\
+          ."
+        schema:
+          type: string
+      responses:
+        '204':
+          description: ''
+      tags:
+      - variety
+  /food/:
+    get:
+      operationId: listFoods
+      description: ''
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  count:
+                    type: integer
+                    example: 123
+                  next:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?page=4
+                  previous:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?page=2
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Food'
+            text/html:
+              schema:
+                type: object
+                properties:
+                  count:
+                    type: integer
+                    example: 123
+                  next:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?page=4
+                  previous:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?page=2
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Food'
+            multipart/form-data; boundary=BoUnDaRyStRiNg:
+              schema:
+                type: object
+                properties:
+                  count:
+                    type: integer
+                    example: 123
+                  next:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?page=4
+                  previous:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?page=2
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Food'
+          description: ''
+      tags:
+      - food
+    post:
+      operationId: createFood
+      description: ''
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Food'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Food'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Food'
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Food'
+            text/html:
+              schema:
+                $ref: '#/components/schemas/Food'
+            multipart/form-data; boundary=BoUnDaRyStRiNg:
+              schema:
+                $ref: '#/components/schemas/Food'
+          description: ''
+      tags:
+      - food
+  /food/{id}/:
+    get:
+      operationId: retrieveFood
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: "A unique integer value identifying this \u0413\u0430\u0441\u0442\
+          \u0440\u043E\u043D\u043E\u043C\u0438\u044F."
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Food'
+            text/html:
+              schema:
+                $ref: '#/components/schemas/Food'
+            multipart/form-data; boundary=BoUnDaRyStRiNg:
+              schema:
+                $ref: '#/components/schemas/Food'
+          description: ''
+      tags:
+      - food
+    put:
+      operationId: updateFood
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: "A unique integer value identifying this \u0413\u0430\u0441\u0442\
+          \u0440\u043E\u043D\u043E\u043C\u0438\u044F."
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Food'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Food'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Food'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Food'
+            text/html:
+              schema:
+                $ref: '#/components/schemas/Food'
+            multipart/form-data; boundary=BoUnDaRyStRiNg:
+              schema:
+                $ref: '#/components/schemas/Food'
+          description: ''
+      tags:
+      - food
+    patch:
+      operationId: partialUpdateFood
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: "A unique integer value identifying this \u0413\u0430\u0441\u0442\
+          \u0440\u043E\u043D\u043E\u043C\u0438\u044F."
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Food'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Food'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Food'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Food'
+            text/html:
+              schema:
+                $ref: '#/components/schemas/Food'
+            multipart/form-data; boundary=BoUnDaRyStRiNg:
+              schema:
+                $ref: '#/components/schemas/Food'
+          description: ''
+      tags:
+      - food
+    delete:
+      operationId: destroyFood
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: "A unique integer value identifying this \u0413\u0430\u0441\u0442\
+          \u0440\u043E\u043D\u043E\u043C\u0438\u044F."
+        schema:
+          type: string
+      responses:
+        '204':
+          description: ''
+      tags:
+      - food
+  /potions/:
+    get:
+      operationId: listPotions
+      description: ''
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  count:
+                    type: integer
+                    example: 123
+                  next:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?page=4
+                  previous:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?page=2
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Potion'
+            text/html:
+              schema:
+                type: object
+                properties:
+                  count:
+                    type: integer
+                    example: 123
+                  next:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?page=4
+                  previous:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?page=2
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Potion'
+            multipart/form-data; boundary=BoUnDaRyStRiNg:
+              schema:
+                type: object
+                properties:
+                  count:
+                    type: integer
+                    example: 123
+                  next:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?page=4
+                  previous:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?page=2
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Potion'
+          description: ''
+      tags:
+      - potions
+    post:
+      operationId: createPotion
+      description: ''
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Potion'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Potion'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Potion'
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Potion'
+            text/html:
+              schema:
+                $ref: '#/components/schemas/Potion'
+            multipart/form-data; boundary=BoUnDaRyStRiNg:
+              schema:
+                $ref: '#/components/schemas/Potion'
+          description: ''
+      tags:
+      - potions
+  /potions/{id}/:
+    get:
+      operationId: retrievePotion
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: "A unique integer value identifying this \u041D\u0430\u043F\u0438\
+          \u0442\u043E\u043A."
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Potion'
+            text/html:
+              schema:
+                $ref: '#/components/schemas/Potion'
+            multipart/form-data; boundary=BoUnDaRyStRiNg:
+              schema:
+                $ref: '#/components/schemas/Potion'
+          description: ''
+      tags:
+      - potions
+    put:
+      operationId: updatePotion
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: "A unique integer value identifying this \u041D\u0430\u043F\u0438\
+          \u0442\u043E\u043A."
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Potion'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Potion'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Potion'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Potion'
+            text/html:
+              schema:
+                $ref: '#/components/schemas/Potion'
+            multipart/form-data; boundary=BoUnDaRyStRiNg:
+              schema:
+                $ref: '#/components/schemas/Potion'
+          description: ''
+      tags:
+      - potions
+    patch:
+      operationId: partialUpdatePotion
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: "A unique integer value identifying this \u041D\u0430\u043F\u0438\
+          \u0442\u043E\u043A."
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Potion'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Potion'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Potion'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Potion'
+            text/html:
+              schema:
+                $ref: '#/components/schemas/Potion'
+            multipart/form-data; boundary=BoUnDaRyStRiNg:
+              schema:
+                $ref: '#/components/schemas/Potion'
+          description: ''
+      tags:
+      - potions
+    delete:
+      operationId: destroyPotion
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: "A unique integer value identifying this \u041D\u0430\u043F\u0438\
+          \u0442\u043E\u043A."
+        schema:
+          type: string
+      responses:
+        '204':
+          description: ''
+      tags:
+      - potions
+  /users/{id}/set_password/:
+    post:
+      operationId: setPasswordUser
+      description: API endpoint that allows users to be viewed or edited.
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: "A unique integer value identifying this \u043F\u043E\u043B\u044C\
+          \u0437\u043E\u0432\u0430\u0442\u0435\u043B\u044C."
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/User'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/User'
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+            text/html:
+              schema:
+                $ref: '#/components/schemas/User'
+            multipart/form-data; boundary=BoUnDaRyStRiNg:
+              schema:
+                $ref: '#/components/schemas/User'
+          description: ''
+      tags:
+      - users
+components:
+  schemas:
+    User:
+      type: object
+      properties:
+        url:
+          type: string
+          readOnly: true
+        username:
+          type: string
+          description: "\u041E\u0431\u044F\u0437\u0430\u0442\u0435\u043B\u044C\u043D\
+            \u043E\u0435 \u043F\u043E\u043B\u0435. \u041D\u0435 \u0431\u043E\u043B\
+            \u0435\u0435 150 \u0441\u0438\u043C\u0432\u043E\u043B\u043E\u0432. \u0422\
+            \u043E\u043B\u044C\u043A\u043E \u0431\u0443\u043A\u0432\u044B, \u0446\u0438\
+            \u0444\u0440\u044B \u0438 \u0441\u0438\u043C\u0432\u043E\u043B\u044B @/./+/-/_."
+          pattern: ^[\w.@+-]+\z
+          maxLength: 150
+        email:
+          type: string
+          format: email
+          maxLength: 254
+        groups:
+          type: array
+          items:
+            type: string
+          description: "\u0413\u0440\u0443\u043F\u043F\u044B, \u043A \u043A\u043E\u0442\
+            \u043E\u0440\u044B\u043C \u043F\u0440\u0438\u043D\u0430\u0434\u043B\u0435\
+            \u0436\u0438\u0442 \u0434\u0430\u043D\u043D\u044B\u0439 \u043F\u043E\u043B\
+            \u044C\u0437\u043E\u0432\u0430\u0442\u0435\u043B\u044C. \u041F\u043E\u043B\
+            \u044C\u0437\u043E\u0432\u0430\u0442\u0435\u043B\u044C \u043F\u043E\u043B\
+            \u0443\u0447\u0438\u0442 \u0432\u0441\u0435 \u043F\u0440\u0430\u0432\u0430\
+            , \u0443\u043A\u0430\u0437\u0430\u043D\u043D\u044B\u0435 \u0432 \u043A\
+            \u0430\u0436\u0434\u043E\u0439 \u0438\u0437 \u0435\u0433\u043E/\u0435\u0451\
+            \ \u0433\u0440\u0443\u043F\u043F."
+        password:
+          type: string
+          maxLength: 128
+      required:
+      - username
+      - password
+    Group:
+      type: object
+      properties:
+        url:
+          type: string
+          readOnly: true
+        name:
+          type: string
+          maxLength: 150
+      required:
+      - name
+    Category:
+      type: object
+      properties:
+        url:
+          type: string
+          readOnly: true
+        datex:
+          type: string
+          format: date-time
+          readOnly: true
+          nullable: true
+        date1:
+          type: string
+          format: date-time
+          readOnly: true
+          nullable: true
+        namerus:
+          type: string
+          maxLength: 255
+        description:
+          type: string
+          nullable: true
+        nameeng:
+          type: string
+          maxLength: 255
+        descriptioneng:
+          type: string
+          nullable: true
+        namefra:
+          type: string
+          nullable: true
+          maxLength: 255
+        descriptionfra:
+          type: string
+          nullable: true
+      required:
+      - namerus
+      - nameeng
+    SubCategory:
+      type: object
+      properties:
+        url:
+          type: string
+          readOnly: true
+        datex:
+          type: string
+          format: date-time
+          readOnly: true
+          nullable: true
+        date1:
+          type: string
+          format: date-time
+          readOnly: true
+          nullable: true
+        namerus:
+          type: string
+          maxLength: 255
+        description:
+          type: string
+          nullable: true
+        nameeng:
+          type: string
+          maxLength: 255
+        descriptioneng:
+          type: string
+          nullable: true
+        namefra:
+          type: string
+          nullable: true
+          maxLength: 255
+        descriptionfra:
+          type: string
+          nullable: true
+        category:
+          type: string
+          nullable: true
+      required:
+      - namerus
+      - nameeng
+    Type:
+      type: object
+      properties:
+        url:
+          type: string
+          readOnly: true
+        datex:
+          type: string
+          format: date-time
+          readOnly: true
+          nullable: true
+        date1:
+          type: string
+          format: date-time
+          readOnly: true
+          nullable: true
+        namerus:
+          type: string
+          maxLength: 255
+        description:
+          type: string
+          nullable: true
+        nameeng:
+          type: string
+          maxLength: 255
+        descriptioneng:
+          type: string
+          nullable: true
+        namefra:
+          type: string
+          nullable: true
+          maxLength: 255
+        descriptionfra:
+          type: string
+          nullable: true
+        subcategory:
+          type: string
+          nullable: true
+      required:
+      - namerus
+      - nameeng
+    Color:
+      type: object
+      properties:
+        url:
+          type: string
+          readOnly: true
+        datex:
+          type: string
+          format: date-time
+          readOnly: true
+          nullable: true
+        date1:
+          type: string
+          format: date-time
+          readOnly: true
+          nullable: true
+        namerus:
+          type: string
+          maxLength: 255
+        description:
+          type: string
+          nullable: true
+        nameeng:
+          type: string
+          maxLength: 255
+        descriptioneng:
+          type: string
+          nullable: true
+        namefra:
+          type: string
+          nullable: true
+          maxLength: 255
+        descriptionfra:
+          type: string
+          nullable: true
+        type:
+          type: string
+          nullable: true
+      required:
+      - namerus
+      - nameeng
+    Body:
+      type: object
+      properties:
+        url:
+          type: string
+          readOnly: true
+        datex:
+          type: string
+          format: date-time
+          readOnly: true
+          nullable: true
+        date1:
+          type: string
+          format: date-time
+          readOnly: true
+          nullable: true
+        namerus:
+          type: string
+          maxLength: 255
+        description:
+          type: string
+          nullable: true
+        nameeng:
+          type: string
+          maxLength: 255
+        descriptioneng:
+          type: string
+          nullable: true
+        namefra:
+          type: string
+          nullable: true
+          maxLength: 255
+        descriptionfra:
+          type: string
+          nullable: true
+      required:
+      - namerus
+      - nameeng
+    ProductionMethod:
+      type: object
+      properties:
+        url:
+          type: string
+          readOnly: true
+        datex:
+          type: string
+          format: date-time
+          readOnly: true
+          nullable: true
+        date1:
+          type: string
+          format: date-time
+          readOnly: true
+          nullable: true
+        namerus:
+          type: string
+          maxLength: 255
+        description:
+          type: string
+          nullable: true
+        nameeng:
+          type: string
+          maxLength: 255
+        descriptioneng:
+          type: string
+          nullable: true
+        namefra:
+          type: string
+          nullable: true
+          maxLength: 255
+        descriptionfra:
+          type: string
+          nullable: true
+      required:
+      - namerus
+      - nameeng
+    Brand:
+      type: object
+      properties:
+        url:
+          type: string
+          readOnly: true
+        datex:
+          type: string
+          format: date-time
+          readOnly: true
+          nullable: true
+        date1:
+          type: string
+          format: date-time
+          readOnly: true
+          nullable: true
+        namerus:
+          type: string
+          maxLength: 255
+        description:
+          type: string
+          nullable: true
+        nameeng:
+          type: string
+          maxLength: 255
+        descriptioneng:
+          type: string
+          nullable: true
+        namefra:
+          type: string
+          nullable: true
+          maxLength: 255
+        descriptionfra:
+          type: string
+          nullable: true
+      required:
+      - namerus
+      - nameeng
+    Manufacturer:
+      type: object
+      properties:
+        url:
+          type: string
+          readOnly: true
+        datex:
+          type: string
+          format: date-time
+          readOnly: true
+          nullable: true
+        date1:
+          type: string
+          format: date-time
+          readOnly: true
+          nullable: true
+        namerus:
+          type: string
+          maxLength: 255
+        description:
+          type: string
+          nullable: true
+        nameeng:
+          type: string
+          maxLength: 255
+        descriptioneng:
+          type: string
+          nullable: true
+        namefra:
+          type: string
+          nullable: true
+          maxLength: 255
+        descriptionfra:
+          type: string
+          nullable: true
+        brand:
+          type: string
+          nullable: true
+      required:
+      - namerus
+      - nameeng
+    Country:
+      type: object
+      properties:
+        url:
+          type: string
+          readOnly: true
+        datex:
+          type: string
+          format: date-time
+          readOnly: true
+          nullable: true
+        date1:
+          type: string
+          format: date-time
+          readOnly: true
+          nullable: true
+        namerus:
+          type: string
+          maxLength: 255
+        description:
+          type: string
+          nullable: true
+        nameeng:
+          type: string
+          maxLength: 255
+        descriptioneng:
+          type: string
+          nullable: true
+        namefra:
+          type: string
+          nullable: true
+          maxLength: 255
+        descriptionfra:
+          type: string
+          nullable: true
+      required:
+      - namerus
+      - nameeng
+    Region:
+      type: object
+      properties:
+        url:
+          type: string
+          readOnly: true
+        datex:
+          type: string
+          format: date-time
+          readOnly: true
+          nullable: true
+        date1:
+          type: string
+          format: date-time
+          readOnly: true
+          nullable: true
+        namerus:
+          type: string
+          maxLength: 255
+        description:
+          type: string
+          nullable: true
+        nameeng:
+          type: string
+          maxLength: 255
+        descriptioneng:
+          type: string
+          nullable: true
+        namefra:
+          type: string
+          nullable: true
+          maxLength: 255
+        descriptionfra:
+          type: string
+          nullable: true
+        country:
+          type: string
+          nullable: true
+      required:
+      - namerus
+      - nameeng
+    RawMaterial:
+      type: object
+      properties:
+        url:
+          type: string
+          readOnly: true
+        datex:
+          type: string
+          format: date-time
+          readOnly: true
+          nullable: true
+        date1:
+          type: string
+          format: date-time
+          readOnly: true
+          nullable: true
+        namerus:
+          type: string
+          maxLength: 255
+        description:
+          type: string
+          nullable: true
+        nameeng:
+          type: string
+          maxLength: 255
+        descriptioneng:
+          type: string
+          nullable: true
+        namefra:
+          type: string
+          nullable: true
+          maxLength: 255
+        descriptionfra:
+          type: string
+          nullable: true
+      required:
+      - namerus
+      - nameeng
+    Variety:
+      type: object
+      properties:
+        url:
+          type: string
+          readOnly: true
+        datex:
+          type: string
+          format: date-time
+          readOnly: true
+          nullable: true
+        date1:
+          type: string
+          format: date-time
+          readOnly: true
+          nullable: true
+        namerus:
+          type: string
+          maxLength: 255
+        description:
+          type: string
+          nullable: true
+        nameeng:
+          type: string
+          maxLength: 255
+        descriptioneng:
+          type: string
+          nullable: true
+        namefra:
+          type: string
+          nullable: true
+          maxLength: 255
+        descriptionfra:
+          type: string
+          nullable: true
+        raw:
+          type: string
+          nullable: true
+      required:
+      - namerus
+      - nameeng
+    Food:
+      type: object
+      properties:
+        url:
+          type: string
+          readOnly: true
+        datex:
+          type: string
+          format: date-time
+          readOnly: true
+          nullable: true
+        date1:
+          type: string
+          format: date-time
+          readOnly: true
+          nullable: true
+        namerus:
+          type: string
+          maxLength: 255
+        description:
+          type: string
+          nullable: true
+        nameeng:
+          type: string
+          maxLength: 255
+        descriptioneng:
+          type: string
+          nullable: true
+        namefra:
+          type: string
+          nullable: true
+          maxLength: 255
+        descriptionfra:
+          type: string
+          nullable: true
+      required:
+      - namerus
+      - nameeng
+    Potion:
+      type: object
+      properties:
+        url:
+          type: string
+          readOnly: true
+        datex:
+          type: string
+          format: date-time
+          readOnly: true
+          nullable: true
+        date1:
+          type: string
+          format: date-time
+          readOnly: true
+          nullable: true
+        namerus:
+          type: string
+          maxLength: 255
+        description:
+          type: string
+          nullable: true
+        nameeng:
+          type: string
+          maxLength: 255
+        descriptioneng:
+          type: string
+          nullable: true
+        namefra:
+          type: string
+          nullable: true
+          maxLength: 255
+        descriptionfra:
+          type: string
+          nullable: true
+        alcohol:
+          type: integer
+          maximum: 2147483647
+          nullable: true
+          minimum: 0
+        sugar:
+          type: integer
+          maximum: 2147483647
+          nullable: true
+          minimum: 0
+        year:
+          type: integer
+          maximum: 2147483647
+          nullable: true
+          minimum: 0
+        type:
+          type: string
+          nullable: true
+        region:
+          type: string
+          nullable: true
+        manufacturer:
+          type: string
+          nullable: true
+        productionmethod:
+          type: string
+          nullable: true
+        variety:
+          type: string
+          nullable: true
+        color:
+          type: string
+          nullable: true
+        bod:
+          type: string
+          nullable: true
+        food:
+          type: array
+          items:
+            type: string
+      required:
+      - namerus
+      - nameeng
