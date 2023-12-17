@@ -1,0 +1,32 @@
+
+{% extends "rest_framework/admin.html" %}
+
+{% load static %}
+{% load i18n %}
+{% load rest_framework %}
+
+{% block style %}
+        <link rel="stylesheet" href="https://bootswatch.com/flatly/bootstrap.min.css" type="text/css"/>
+        <link rel="stylesheet" type="text/css" href="{% static 'rest_framework/css/bootstrap.min.css' %}"/>
+        <link rel="stylesheet" type="text/css" href="{% static 'rest_framework/css/bootstrap-tweaks.css' %}"/>
+        <link rel="stylesheet" type="text/css" href="{% static 'rest_framework/css/prettify.css' %}"/>
+        <link rel="stylesheet" type="text/css" href="{% static 'rest_framework/css/default.css' %}"/>
+        <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}"/>
+        <link rel="shortcut icon" type="image/ico" href="{% static 'favicon.ico' %}">
+        <link rel="apple-touch-icon" type="image/ico" href="{% static 'favicon.ico' %}">
+{% endblock %}
+
+{% block meta %}
+                <meta name="viewport" content="width=device-width,initial-scale=1">
+                <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+{% endblock meta %}
+
+{% block bootstrap_navbar_variant %}navbar-custom{% endblock %}
+
+{% block branding %}
+    <a class='navbar-brand' rel="nofollow" href='https://www.django-rest-framework.org/'>
+        template name is 'admin.html'
+    </a>
+{% endblock %}
+
+

@@ -1,0 +1,27 @@
+<!-- templates/post_detail.html -->
+{% extends 'postgresql/base.html' %}
+{% load cms_tags %}
+{% load static %}
+{% load i18n %}
+{% load extrastags %}
+{% render_model request.current_page "page_title" as page_title %}
+{% block content %}
+<fieldset class="fieldset-detail">
+    <legend class="legend-detail"><h3>{{ object|verbose_name }} details</h3></legend>
+        {{ object.title }}
+            {% for key, val in quert.items %}
+                <ul class="detail-row">
+                    <div class="row-detail">
+                        <div class="detail-label">{{key}}</div>
+                        <div class="detail-field">
+                            {% if 'date' in key.lower %}
+                                {{val | date:"d.m.Y"}}
+                            {% else %}
+                                {{val | striptags | urlize}}
+                        {% endif %}
+                        </div>
+                    </div>
+                </ul>
+            {% endfor %}
+</fieldset>
+{% endblock content %}

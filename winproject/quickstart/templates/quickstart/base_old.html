@@ -1,0 +1,27 @@
+{% extends "html/base.html" %}
+{% load i18n %}
+{% block branding %}
+    <a class='navbar-brand' rel="nofollow" href='https://www.django-rest-framework.org/'>
+        QuickStart Programm
+    </a>
+{% endblock %}
+
+
+{% block content %}
+{% endblock content %}
+{% block searchside %}
+    <form action="{{current}}" method="get">
+        <input name="q" type="search" id="search3" class="cc" placeholder="Search...">
+        <!--<input name="next" type="hidden" value="{{back}}">-->
+        <button id='search1' type="submit" class="cc">Search</button>
+    </form>
+{% endblock %}
+{% block buttonset %}
+    <div class="buttonset">
+        {% for val in buttonset %}
+            {% if val.type == 1 %}
+                <div class="button_flex"><a class="cl" href="{{val.link}}">{{val.label}}</a></div>
+        {% endif %}
+        {% endfor%}
+    </div>
+{% endblock %}

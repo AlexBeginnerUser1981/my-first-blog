@@ -1,0 +1,40 @@
+{% extends 'quickstart/base.html' %}
+{% load static %}
+{% load rest_framework %}
+{% block content %}
+
+<div>
+    {% if neutral %}
+        <h1 align="center">{{title|capfirst}}</h1>
+        <table class="table">
+            <thead><tr>
+                {% for key, val in columns.items %}
+                    <th>{{val|capfirst}}</th>
+                {% endfor %}
+            </tr></thead>  <!-- названия столбцов-->
+            {% for row in neutral %} <!-- table filling-->
+                <tr>
+                    {% for key, val in columns.items %}
+                        {% for a,b,c in row %}
+                            {% if a == key %}
+                                <td align="center">
+                                {% if a == 'id' %}
+                                    <a href="{% url urls c %}">
+                                        {{ c |striptags|default_if_none:" NO DATA "}}
+                                    </a>
+                                {% else %}
+                                    {{ c |striptags|default_if_none:" NO DATA "}}
+                                {% endif %}
+                            </td>
+                            {% endif %}
+                        {% endfor %}
+
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+        </table>
+      {% else %}
+        <p>No records are available.</p>
+      {% endif %}
+</div>
+{% endblock %}

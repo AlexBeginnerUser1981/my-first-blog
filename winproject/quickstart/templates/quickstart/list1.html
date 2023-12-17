@@ -1,0 +1,19 @@
+{% extends 'html/base.html' %}
+{% load static %}
+{% load rest_framework %}
+
+{% block content %}
+<table class="table table-striped">
+  <thead>
+    <tr>{% for _, column in columns|items %}<th>{{ column|capfirst }}</th>{% endfor %}<th class="col-xs-1"></th></tr>
+  </thead>
+  <tbody>
+    {% for row in results %}
+    <tr>
+      row
+    </tr>
+    {% endfor %}
+  </tbody>
+
+</table>
+{% endblock %}
